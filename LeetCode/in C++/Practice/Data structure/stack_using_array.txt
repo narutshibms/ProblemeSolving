@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
+
+using namespace std;
+
+struct stack {
+    
+    int index; 
+    int size ;
+    int *arr;
+    
+};
+
+int isfull(struct stack *A)
+{
+    if (A->index == A->size-1)
+        return 0;
+        else 
+            return 1;
+}
+void puch(struct stack *A)
+{
+    
+    int s = isfull(A);
+    
+    if(s){
+    A->index ++ ;   
+     cout<<"Arr["<<A->index+1<<"] =  ";
+     cin>>A->arr[A->index]; 
+      
+         
+         }        
+
+    else 
+        cout<<"\t\nthe stack is full !. \n";
+    
+}
+
+void showelements(struct stack *A)
+{
+    for(int j=A->index ; j>=0 ; j--)
+    cout<<" ["<<A->arr[j]<<"] --> ";
+    cout<<"bas\n";
+}
+
+void pop(stack *A)
+{
+  A->arr[A->index] = 0;
+    A->index--;    
+}
+
+int main(int argc, char **argv)
+{
+        struct stack *A;
+        A = new stack[1];
+        
+
+        
+        A->index = -1;
+        cout<<"give the size of stack : ";
+        cin>>A->size;
+        A->arr = new int[A->size];
+        
+        puch(A);
+        puch(A);
+        puch(A);
+        puch(A);
+        puch(A);
+        puch(A);
+        showelements(A); 
+          pop(A); 
+      showelements(A); 
+        puch(A);
+                 showelements(A); 
+
+
+    
+	return 0;
+}

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1654534479 source:c:\users\mr-xx\desktop\temp\occinstring\main.cpp
+	<iostream>
+	<vector>
+	<string>
+

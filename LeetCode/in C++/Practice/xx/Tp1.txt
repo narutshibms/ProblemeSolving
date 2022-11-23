@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h1>Please Complete this Info : </h1>
+    <section class="sec">
+        <ul ss>
+            <li>Your Face : </li>
+            <li>Your Image : <input type="file" > </li>
+            <li>Image Preview : </li>
+
+        </ul>
+        <br>
+        <br>
+
+        <ul>
+            <li>Your General Details : </li>
+            <li> Your Name : <input type="text" required> </li>
+            <li> Gender :
+                <input type="radio" id="child" name="child" value="Male" required>
+                <label for="child">Male</label>
+                <input type="radio" id="adult" name="adult" value="Female" required>
+                <label for="adult">Female</label>
+
+            </li>
+            <li>Age <input type="text" required></li>
+            <li>Date of Birth : <input type="Date" required></li>
+            <li>Favorite Color : <input type="color" required> </li>
+            <li>Which Country : <input type="Label" required></li>
+
+        </ul>
+        <br>
+        <br>
+        <ul>
+            <li>Indecators</li>
+
+            <li>Height Short<input type="range" required>Tall </li>
+            <li> Salary Poor<input type="range" required>Rich </li>
+
+        </ul>
+        <br>
+        <br>
+        <ul>
+            <li>Your Contact Information : </li>
+            <li>Email <input type="email" required></li>
+            <li>Mobile <input type="text" required></li>
+            <li>Address <input type="address" required> </li>
+            <li>Methodes To Contacts You
+
+                <input type="checkbox">Email
+                <input type="checkbox">Whatssapp
+                <input type="checkbox">App-Chat
+
+            </li>
+
+
+        </ul>
+        <button type="submit" required>Submit</button>
+    </section>
+
+
+</body>
+
+</html>

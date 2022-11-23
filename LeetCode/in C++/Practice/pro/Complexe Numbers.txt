@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+typedef struct complexe
+{
+    char id;
+    double real;
+    double imagine;
+
+} comp;
+
+
+void affiche(comp *z )
+{
+    printf("\n\t %c =  %.2lf",z->id,z->real);
+    printf(" + i(%.2lf) .",z->imagine);
+    printf("\n");
+
+}
+
+double imag(comp *z)
+{
+    return z->imagine;
+}
+double real(comp *z)
+{
+    return z->real;
+}
+
+
+double Abs(comp *z)
+{
+    return sqrt( pow(z->imagine,2) + pow(z->real,2) );
+}
+
+comp *multiple(comp *a, comp *b)
+{
+    comp *z;
+ z = (comp*)calloc(1,sizeof(comp));
+    z->id = 'R';
+    z->real = (a->real*b->real - a->imagine*b->imagine );
+    z->imagine  = a->real * b->imagine + a->imagine*b->real;
+
+    return z;
+}
+
+void saisie(comp *z)
+{
+     fflush(stdin);
+    printf("\n\tDonner le nome de le nombre : ");
+    scanf("%c",&z->id);
+    printf("\n\tDonner La Partie Real : ");
+    scanf("%lf",&z->real);
+    ///For Z
+    printf("\n\tDonner La Partie Imagine : ");
+    scanf("%lf",&z->imagine);
+
+}
+int main()
+{
+
+    comp *z,*e,*res;
+
+   z = (comp*)calloc(1,sizeof(comp));
+   e = (comp*)calloc(1,sizeof(comp));
+   res = (comp*)calloc(1,sizeof(comp));
+
+
+    saisie(e);
+    saisie(z);
+
+    affiche(z);
+    affiche(e);
+
+      printf("\n\tla valeur Abs de %c = %.2lf",z->id,Abs(z));
+
+      printf("\n\tla valeur Abs de %c = %.2lf\n",e->id,Abs(e));
+
+
+
+     res = multiple(z,e);
+    affiche(res);
+
+
+
+    return 0;
+}

@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Etudiant
+{
+
+    char nom[15];
+    char prenom[15];
+    int CNE;
+    float notes[4];
+    float moyenne;
+
+} etd;
+
+void affiche(etd EE);
+
+int findmax(etd EE[])
+{
+    int max = EE[0].moyenne;
+    int index = 0;
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (max < EE[i + 1].moyenne)
+        {
+            max = EE[i + 1].moyenne;
+            index = i + 1;
+        }
+    }
+
+    printf("\n\t\tThe Higher Moyenne Has Gotten By : ");
+
+    affiche(EE[index]);
+
+    return 0;
+}
+
+void affiche(etd EE)
+{
+    etd E = EE;
+
+    printf("\n\tle nome d'etudinat : %s", (E.nom));
+
+    printf("\n\t le Prenom  : %s", (E.prenom));
+
+    printf("\n\tCNE d'Etudinat  :  %d", (E.CNE));
+
+    printf("\n\n\tle 4 notes d'Etudinat : ");
+
+    for (int i = 0; i < 4; i++)
+        printf("\n\t Note[%d] =  %f", i + 1, (E.notes[i]));
+
+    printf("\n\tmoy de Etd est :  %f", (E.moyenne));
+}
+
+void saisie(etd *E, int *pos)
+{
+    float a = 0;
+    int cpy;
+    printf("\n\tDonner le nome d'etudinat : ");
+    scanf("%s", &(E + *pos)->nom);
+
+    printf("\n\tEt le Prenom ? : ");
+    scanf("%s", &(E + *pos)->prenom);
+
+    printf("\n\tCNE d'Etudinat  : ");
+    scanf("%d", &(E + *pos)->CNE);
+    printf("Donner le 4 notes d'Etudinat : ");
+
+    for (int i = 0; i < 4; i++)
+    {
+        printf("\n\t Note[%d] =  ", i + 1);
+        scanf("%f", &(E + *pos)->notes[i]);
+        a = a + (E + *pos)->notes[i];
+    }
+    printf("\n\n");
+    (E + *pos)->moyenne = a / 4;
+
+    *pos = *pos + 1;
+    cpy = *pos;
+    if (cpy < 4)
+        saisie(E, &cpy);
+}
+
+int main()
+
+{
+
+    etd E[4];
+    int pos = 0;
+
+    saisie(E, &pos);
+
+    findmax(E);
+
+    return 0;
+}

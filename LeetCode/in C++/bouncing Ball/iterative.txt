@@ -1,0 +1,17 @@
+
+int bouncingBall(double h, double bounce, double window) {
+  
+ 
+if((bounce <0 || bounce >1) || h<=window  )
+   return -1;
+  
+float val = h*bounce;
+h = 0;
+
+ 
+do{ if(val>window)h++; }while(val*=bounce);
+    
+return h*2+1;
+ }
+
+https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/c

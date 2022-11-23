@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+
+
+using namespace std;
+
+int getindex(char *A,int pos)
+{
+    for(int i= pos ; A[i]!='\n' ; i++ )
+     {
+         if(   A[i] == ' ' || A[i] == '\t' )
+         continue;
+         else
+            return i;
+     }
+
+}
+
+void deletes(char  *str)
+{
+
+    int size_s = strlen(str);
+   int index;
+
+    for(int w=0 ; w<size_s ; w++)
+    {
+        if( str[w] == ' ' || str[w] == '\t' )
+        {
+
+
+           index =  getindex(str,w+1);
+           str[w] = str[index];
+           str[index ] = ' ';
+
+
+        }
+
+    }
+
+
+
+
+
+}
+
+
+
+
+int main()
+{
+
+    char str[20];
+    printf("Give a string to be removed : ");
+    gets(str);
+
+    deletes(str);
+
+    printf("String without spaces is  : ");
+    printf("%s",str);
+
+    return 0;
+}

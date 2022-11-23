@@ -1,0 +1,48 @@
+int getsize(ListNode *head){
+
+  ListNode * a=head;
+        int i=0;
+
+        while(a=a->next)
+            i++;
+
+        return i;
+
+    }
+
+ ListNode* removeNthFromEnd(ListNode* head, int n) {
+
+                ListNode * v = head->next;
+                ListNode * t = head;
+                int sz = getsize(head) - n;
+                int j = 0;
+
+                 
+
+
+
+          if( !v )
+            return nullptr;
+
+
+
+        else if(sz>=0){
+
+            while(j<sz){
+
+               t = t->next;
+               v = v->next;
+                j++;
+
+               }
+
+        t->next = v->next;
+        }
+        else
+            head = head->next;
+
+
+        return head;
+
+
+    }

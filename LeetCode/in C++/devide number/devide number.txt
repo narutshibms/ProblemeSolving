@@ -1,0 +1,32 @@
+int in = 0;
+//recursive
+int recu(int n){
+
+
+if(n){
+    in += n%10;
+    recu(n/10);
+    }
+else if(in>=10){
+      n=in;
+      in = 0;
+    recu(n); }
+
+    return in;
+}
+
+//iterative
+
+int rtx(int n){
+
+ int av = n;
+
+   do{
+    n = av;
+    av = 0;
+do{ av += (n%10); }while(n/=10);
+
+}while(av>=10);
+
+return av;
+ }

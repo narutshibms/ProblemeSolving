@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+void powers(int n, int base,int *nn);
+
+int saperate(int n)
+{
+    int c = n;
+    int nn=0;
+    
+    do
+    {
+        powers(c,n%10,&nn);
+        n = n / 10;
+
+    } while (n);
+    printf(" =  %d ",nn+1);
+    if(c==nn)
+    return 1;
+    else 
+    return 0;
+}
+
+void powers(int n, int base,int *nn)
+{
+    int NumberDg = (int)log10(n) + 1;
+    
+    int res = (int)pow(base,NumberDg);
+     
+     *nn = *nn + res;
+
+    printf("(%d ^ %d = %d ) ,",base,NumberDg,res);
+
+}
+
+
+int main()
+
+{
+
+    int a = 7;
+
+   printf("%d",saperate(a));
+   
+    return 0;
+}
